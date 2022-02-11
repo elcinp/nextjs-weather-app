@@ -17,9 +17,15 @@ export default function SearchBox() {
         if (matchingCities.length >= 5) {
           break;
         }
-        const match = city.name.toLowerCase().startswith(value.toLowerCase());
+
+        const match = city.name.toLowerCase().startsWith(value.toLowerCase());
+
         if (match) {
-          matchingCities.push(city);
+          const cityData = {
+            ...city,
+            slug:`${city.name.toLowerCase().replace(/ /g,"-")}-${city.id}`
+          }
+          matchingCities.push(cityData);
         }
       }
     }
