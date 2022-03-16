@@ -2,6 +2,7 @@ import React from "react";
 
 export async function getServerSideProps(context) {
   const slug = context.params.city;
+  
 
   return {
     props: {
